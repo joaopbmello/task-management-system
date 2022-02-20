@@ -1,3 +1,11 @@
 .task-title:hover{
     cursor: pointer;
 }
+
+.action:hover{
+    cursor: pointer;
+}
+
+.create-btn{
+    padding-left: auto;
+}

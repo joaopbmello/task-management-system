@@ -23,20 +23,11 @@
                 <span class="lead">{{task.responsable}}</span>
             </th>
             <th>
-                <a href="#" class="link-dark" routerLink="/detalhe/{{task.id}}">Editar</a><span> | </span>
-                <a href="#" class="link-dark" (click)="delete(task)">Excluir</a><span> | </span>
-                <a href="#" class="link-dark" >Concluir</a>
+                <a class="link-dark action" routerLink="/detalhe/{{task.id}}">Editar</a><span> | </span>
+                <a class="link-dark action" (click)="delete(task)">Excluir</a><span> | </span>
+                <a class="link-dark action" >Concluir</a>
             </th>
         </tr>
     </tbody>
+    <button class="btn btn-primary create-btn" routerLink="/criar">Criar tarefa</button>
 </table>
-
-<div>
-    <label for="new-task">Tarefa: </label>
-    <input id="new-task" #taskTitle />
-  
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button type="button" class="btn btn-success" (click)="add(taskTitle.value); taskTitle.value=''">
-      Adicionar tarefa
-    </button>
-  </div>

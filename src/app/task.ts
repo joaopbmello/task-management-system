@@ -5,4 +5,5 @@ export interface Task {
     responsable: string;
     priority: string;
     deadline: string;
+    status: string;
 }

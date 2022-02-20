@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { TaskSearchComponent } from './task-search/task-search.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @NgModule({
   imports: [
@@ -31,7 +33,9 @@ import { TaskSearchComponent } from './task-search/task-search.component';
     TasksComponent,
     TaskDetailComponent,
     MessagesComponent,
-    TaskSearchComponent
+    TaskSearchComponent,
+    CreateTaskComponent,
+    EditTaskComponent
   ],
   bootstrap: [AppComponent]
 })

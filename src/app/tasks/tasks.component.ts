@@ -32,7 +32,9 @@ export class TasksComponent implements OnInit {
   }
 
   delete(task: Task): void {
-    this.tasks = this.tasks.filter(t => t !== task);
-    this.taskService.deleteTask(task.id).subscribe();
+    if (window.confirm("Deseja realmente excluir a tarefa?")) {
+      this.tasks = this.tasks.filter(t => t !== task);
+      this.taskService.deleteTask(task.id).subscribe();
+    }
   }
 }

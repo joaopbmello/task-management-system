@@ -18,12 +18,6 @@
     <div class="row">
         <label class="col-2 text-end" for="task-deadline">Deadline: </label>
         <input class="col-4" id="task-deadline" [(ngModel)]="task.deadline" type="date">
-        <label class="col-2 text-end" for="task-deadline">Status: </label>
-        <select class="col-4" id="task-deadline" #taskStatus placeholder="Status">
-            <option *ngFor="let statu of status" [value]="statu">{{statu}}</option>
-        </select>
-    </div>
-    <div class="row">
         <button type="button" class="btn btn-primary col-4 save-btn" (click)="save()">Salvar</button>
     </div>
 </div>

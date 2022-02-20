@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -6,20 +6,19 @@ import { Task } from '../task';
 import { TaskService } from '../task.service';
 
 @Component({
-  selector: 'app-task-detail',
-  templateUrl: './task-detail.component.html',
-  styleUrls: ['./task-detail.component.css']
+  selector: 'app-edit-task',
+  templateUrl: './edit-task.component.html',
+  styleUrls: ['./edit-task.component.css']
 })
-export class TaskDetailComponent implements OnInit {
+export class EditTaskComponent implements OnInit {
   task: Task | undefined;
 
   priorities = ['Alta', 'Média', 'Baixa'];
-  status = ['Em andamento', 'Concluído'];
 
   constructor(
     private route: ActivatedRoute,
     private taskService: TaskService,
-    private location: Location,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
