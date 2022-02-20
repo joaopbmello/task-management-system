@@ -11,24 +11,17 @@ import { TaskService } from '../task.service';
 export class TasksComponent implements OnInit {
   tasks: Task[] = [];
 
+  filter = "Em andamento";
+
   constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
     this.getTasks();
-  } 
+  }
 
   getTasks(): void {
     this.taskService.getTasks()
         .subscribe(tasks => this.tasks = tasks);
-  }
-
-  add(title: string): void {
-    title = title.trim();
-    if (!title) { return; }
-    this.taskService.addTask({ title } as Task)
-      .subscribe(task => {
-        this.tasks.push(task);
-      });
   }
 
   delete(task: Task): void {
@@ -36,5 +29,14 @@ export class TasksComponent implements OnInit {
       this.tasks = this.tasks.filter(t => t !== task);
       this.taskService.deleteTask(task.id).subscribe();
     }
+  }
+
+  conclude(task: Task): void {
+    task.status = 'Concluído';
+    this.taskService.updateTask(task).subscribe();
+  }
+
+  alreadyConcluded(): void {
+    window.alert('Tarefa já concluída');
   }
 }
