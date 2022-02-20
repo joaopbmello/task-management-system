@@ -14,7 +14,7 @@ export class TaskDetailComponent implements OnInit {
   task: Task | undefined;
 
   priorities = ['Alta', 'Média', 'Baixa'];
-  status = ['Em andamento', 'Concluído'];
+  statuses = ['Em andamento', 'Concluído'];
 
   constructor(
     private route: ActivatedRoute,

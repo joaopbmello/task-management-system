@@ -8,7 +8,7 @@ import { CreateTaskComponent } from './create-task/create-task.component';
 const routes: Routes = [
   { path: '', redirectTo: '/tarefas', pathMatch: 'full' },
   { path: 'detalhe/:id', component: TaskDetailComponent},
-  { path: 'criar', component: CreateTaskComponent},
+  { path: 'cadastro', component: CreateTaskComponent},
   { path: 'tarefas', component: TasksComponent },
 ];
 

@@ -92,6 +92,13 @@ export class TaskService {
       catchError(this.handleError<any>('updatedTask'))
     );
   }
+
+  concludeTask(status: string): Observable<any> {
+    return this.http.put(this.tasksUrl, status, this.httpOptions).pipe(
+      tap(_ => this.log(`updated task status=${status}`)),
+      catchError(this.handleError<any>('concludedTask'))
+    );
+  }
   
   /**
    * Handle Http operation that failed.

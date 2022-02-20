@@ -2,6 +2,11 @@
 
 <app-task-search></app-task-search>
 
+<div id="btns" class="row">
+    <button [class.active]="filter === 'Concluído'" class="btn btn-primary filters-btn col-2" (click)="filter = 'Concluído'">Concluídos</button>
+    <button [class.active]="filter === 'Em andamento'" class="btn btn-primary active col-2" (click)="filter = 'Em andamento'">Em andamento</button>
+</div>
+
 <table class="table text-center">
     <thead>
         <tr>
@@ -13,21 +18,37 @@
     </thead>
     <tbody>
         <tr *ngFor="let task of tasks">
-            <th>
+            <th *ngIf="filter === 'Em andamento' && task.status === 'Em andamento'">
                 <span>{{task.id}}</span>
             </th>
-            <th>
+            <th *ngIf="filter === 'Concluído' && task.status === 'Concluído'">
+                <span>{{task.id}}</span>
+            </th>
+            <th *ngIf="filter === 'Em andamento' && task.status === 'Em andamento'">
                 <span routerLink="/detalhe/{{task.id}}" class="lead task-title">{{task.title}}</span>
             </th>
-            <th>
+            <th *ngIf="filter === 'Concluído' && task.status === 'Concluído'">
+                <span routerLink="/detalhe/{{task.id}}" class="lead task-title">{{task.title}}</span>
+            </th>
+            <th *ngIf="filter === 'Em andamento' && task.status === 'Em andamento'">
                 <span class="lead">{{task.responsable}}</span>
             </th>
-            <th>
+            <th *ngIf="filter === 'Concluído' && task.status === 'Concluído'">
+                <span class="lead">{{task.responsable}}</span>
+            </th>
+            <th *ngIf="filter === 'Em andamento' && task.status === 'Em andamento'">
                 <a class="link-dark action" routerLink="/detalhe/{{task.id}}">Editar</a><span> | </span>
                 <a class="link-dark action" (click)="delete(task)">Excluir</a><span> | </span>
-                <a class="link-dark action" >Concluir</a>
+                <a class="link-dark action" (click)="conclude(task)">Concluir</a>
+            </th>
+            <th *ngIf="filter == 'Concluído' && task.status == 'Concluído'">
+                <a class="link-dark action" routerLink="/detalhe/{{task.id}}">Editar</a><span> | </span>
+                <a class="link-dark action" (click)="delete(task)">Excluir</a><span> | </span>
+                <a class="link-dark action" (click)="alreadyConcluded()">Concluir</a>
             </th>
         </tr>
     </tbody>
-    <button class="btn btn-primary create-btn" routerLink="/criar">Criar tarefa</button>
 </table>
+<div class="row text-center">
+    <button class="btn btn-primary create-btn col-2" routerLink="/cadastro">Cadastrar tarefa</button>
+</div>

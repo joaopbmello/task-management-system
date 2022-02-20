@@ -12,7 +12,7 @@ export class CreateTaskComponent implements OnInit {
   tasks: Task[] = [];
 
   priorities = ['Alta', 'Média', 'Baixa'];
-  status = ['Em andamento', 'Concluído'];
+  statuses = ['Em andamento', 'Concluído'];
 
   constructor(private taskService: TaskService) { }
 
