@@ -6,14 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { TasksComponent } from './tasks/tasks.component';
-import { MessagesComponent } from './messages/messages.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { TaskSearchComponent } from './task-search/task-search.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
-import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @NgModule({
   imports: [
@@ -26,16 +24,14 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
     TasksComponent,
     TaskDetailComponent,
-    MessagesComponent,
     TaskSearchComponent,
     CreateTaskComponent,
-    EditTaskComponent
   ],
   bootstrap: [AppComponent]
 })

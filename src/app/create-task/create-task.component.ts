@@ -21,11 +21,15 @@ export class CreateTaskComponent implements OnInit {
 
   add(title: string, description: string, responsable: string, priority: string, deadline: string, status: string): void {
     title = title.trim();
-    if (!title) { return; }
-    this.taskService.addTask({ title, description, responsable, priority, deadline, status } as Task)
-      .subscribe(task => {
-        this.tasks.push(task);
-      });
-    window.alert('Tarefa criada!')
+    if (!title || !description || !responsable || !priority || !deadline || !status) { 
+      window.alert("Nenhuma das informações pode permanecer vazia");
+    }
+    else {
+      this.taskService.addTask({ title, description, responsable, priority, deadline, status } as Task)
+        .subscribe(task => {
+          this.tasks.push(task);
+        });
+      window.alert('Tarefa criada!')
+    }
   } 
 }

@@ -1,9 +1,9 @@
-<h2 class="h2">Tarefas:</h2>
+<h2 class="h2">Tarefas</h2>
 
 <app-task-search></app-task-search>
 
 <div id="btns" class="row">
-    <button [class.active]="filter === 'Concluído'" class="btn btn-primary filters-btn col-2" (click)="filter = 'Concluído'">Concluídos</button>
+    <button [class.active]="filter === 'Concluído'" class="btn btn-primary filters-btn col-2" (click)="filter = 'Concluído'">Concluídas</button>
     <button [class.active]="filter === 'Em andamento'" class="btn btn-primary active col-2" (click)="filter = 'Em andamento'">Em andamento</button>
 </div>
 

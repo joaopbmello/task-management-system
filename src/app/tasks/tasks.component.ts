@@ -37,6 +37,6 @@ export class TasksComponent implements OnInit {
   }
 
   alreadyConcluded(): void {
-    window.alert('Tarefa já concluída');
+    window.alert('A tarefa já foi concluída');
   }
 }

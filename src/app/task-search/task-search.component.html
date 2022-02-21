@@ -1,12 +1,15 @@
-<div id="search-component">
-    <label for="search-box">Procurar tarefas</label>
-    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-  
-    <ul class="search-result">
-      <li *ngFor="let task of tasks$ | async" >
-        <a routerLink="/detalhe/{{task.id}}">
+<div>
+  <div class="row">
+    <label for="search-box" class="col-2 text-end">Procurar tarefas</label>
+    <input #searchBox id="search-box" class="col" (input)="search(searchBox.value)" placeholder="Insira o título da tarefa" />
+  </div>
+  <div class="row">
+    <ul class="search-result list-group col-10">
+      <li class="list-group-item" *ngFor="let task of tasks$ | async" >
+        <a class="link-dark" routerLink="/detalhe/{{task.id}}">
           {{task.title}}
         </a>
       </li>
     </ul>
+  </div>
 </div>
